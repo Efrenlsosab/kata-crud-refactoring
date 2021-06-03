@@ -15,7 +15,7 @@ public class TodoService {
     @Autowired
 private TodoMapper mapper;
     public Iterable<TodoDTO> list(){
-Iterable<Todo> todos = repository.findAll();//se trae un iterable 
+Iterable<Todo> todos = repository.findAll();//se trae un iterable
         return mapper.toTodoDTOs(todos);
     }
 
@@ -25,11 +25,11 @@ Iterable<Todo> todos = repository.findAll();//se trae un iterable
     }
 
     public void delete(Long id){
-        repository.delete(get(id));
+        repository.delete(mapper.aTodo(get(id)));
     }
 
-    public Todo get(Long id){
-         return repository.findById(id).orElseThrow();
+    public TodoDTO get(Long id){
+         return mapper.convertiraDTO(repository.findById(id).orElseThrow());
     }
 
 }
