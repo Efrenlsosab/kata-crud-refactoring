@@ -26,7 +26,6 @@ export const Form = () => {
     })
       .then(response => response.json())
       .then((todo) => {
-        console.log(todo)
         dispatch({ type: "add-item", item: todo });
         setState({ name: "" });
         formRef.current.reset();

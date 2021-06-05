@@ -18,10 +18,16 @@ export const FormGeneral = () => {
               'Content-Type': 'application/json'
             }
         })
+        .then(response => response.json())
+      .then((todoListageneral) => {console.log(todoListageneral);
+      //  dispatch({ type: "add-item", item: todo });
+        setState({ name: "" });
+        formRef.current.reset();
+      });
 
-    }
+    };
 
-    return <form>
+    return <form ref={formRef}>
         <input 
          type="text"
          name="name"
