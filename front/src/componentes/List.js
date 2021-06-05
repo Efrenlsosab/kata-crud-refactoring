@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Store, HOST_API } from '../App';
 
 export const List = () => {
-  const { dispatch, state: { todo } } = useContext(Store);
+  const { dispatch, state: { todo, listGeneral } } = useContext(Store);
   const currentList = todo.list;
 
   useEffect(() => {
